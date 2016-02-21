@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+SITE=$1
+SRC_DIR="/sources/$SITE"
+OUT_DIR="/sites/$SITE"
+
+if [ ! -d "$SRC_DIR" ]; then
+	mkdir -p "$SRC_DIR"
+	git clone --recurse-submodules "$REPO_URL.git" "$SRC_DIR"
+fi
+
+cd $SRC_DIR
+git fetch
+git checkout $COMMIT
+
+hugo -v -d "$OUT_DIR"
