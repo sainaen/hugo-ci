@@ -7,10 +7,6 @@ RUN apk add --update git && \
 
 COPY ["hugo", "webhooker", "build-site", "/usr/bin/"]
 
-RUN chmod a+x /usr/bin/webhooker && \
-	chmod a+x /usr/bin/hugo && \
-	chmod a+x /usr/bin/build-site
-
 VOLUME ["/sources", "/sites"]
 
 EXPOSE 8000

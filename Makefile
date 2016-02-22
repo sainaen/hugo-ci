@@ -20,7 +20,7 @@ $(TARGET_DIR)/$(STATIC):
 $(TARGET_DIR)/webhooker:
 	@mkdir -p $(TARGET_DIR)
 	wget --quiet $(WEBHOOKER_URL) -O $(TARGET_DIR)/webhooker
-	chmod +x $(TARGET_DIR)/webhooker
+	chmod a+x $(TARGET_DIR)/webhooker
 
 $(TARGET_DIR)/hugo:
 	@mkdir -p $(TARGET_DIR)
@@ -28,6 +28,7 @@ $(TARGET_DIR)/hugo:
 	wget --quiet $(HUGO_URL) -O $(TMP_DIR)/$(HUGO_NAME).tar.gz
 	tar -vxzf $(TMP_DIR)/$(HUGO_NAME).tar.gz -C $(TMP_DIR) $(HUGO_NAME)/$(HUGO_NAME)
 	mv $(TMP_DIR)/$(HUGO_NAME)/$(HUGO_NAME) $(TARGET_DIR)/hugo
+	chmod a+x $(TARGET_DIR)/hugo
 	@rm -rf $(TMP_DIR)
 
 docker: $(TARGET_DIR)/$(STATIC) $(TARGET_DIR)/webhooker $(TARGET_DIR)/hugo
