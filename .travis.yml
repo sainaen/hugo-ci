@@ -1,7 +1,11 @@
 sudo: required
 
+language: c
+
 services:
     - docker
+
+install: true
 
 script:
     - make clean docker-push
