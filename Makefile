@@ -37,4 +37,5 @@ docker-rebuild: $(TARGET_DIR)/$(STATIC) $(TARGET_DIR)/webhooker $(TARGET_DIR)/hu
 	docker build --no-cache -t sainaen/hugo-ci $(TARGET_DIR)
 
 docker-push: docker
-	docker login -e="${DOCKER_EMAIL}" -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}" > /dev/null 2>&1 && docker push sainaen/hugo-ci
+	@docker login -e="${DOCKER_EMAIL}" -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}" > /dev/null 2>&1
+	docker push sainaen/hugo-ci
