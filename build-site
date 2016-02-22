@@ -7,11 +7,13 @@ OUT_DIR="/sites/$SITE"
 
 if [ ! -d "$SRC_DIR" ]; then
 	mkdir -p "$SRC_DIR"
-	git clone --recurse-submodules "$REPO_URL.git" "$SRC_DIR"
+	git clone "$REPO_URL.git" "$SRC_DIR"
 fi
 
 cd $SRC_DIR
 git fetch
-git checkout $COMMIT
+echo "Checking out $COMMIT"
+git checkout --quiet $COMMIT
 
+echo "Building $SITE to $OUT_DIR"
 hugo -v -d "$OUT_DIR"
