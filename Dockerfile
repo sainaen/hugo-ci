@@ -1,9 +1,9 @@
 FROM alpine:3.3
 
-RUN apk add --update git && \
+RUN apk add --update git openssh-client && \
     rm -rf /var/cache/apk/* && \
-	mkdir /sources && \
-	mkdir /sites
+    mkdir /sources && \
+    mkdir /sites
 
 COPY ["hugo", "webhooker", "build-site", "/usr/bin/"]
 
