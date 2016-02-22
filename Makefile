@@ -33,7 +33,7 @@ $(TARGET_DIR)/hugo:
 docker: $(TARGET_DIR)/$(STATIC) $(TARGET_DIR)/webhooker $(TARGET_DIR)/hugo
 	docker build -t sainaen/hugo-ci $(TARGET_DIR)
 
-docker-force: $(TARGET_DIR)/$(STATIC) $(TARGET_DIR)/webhooker $(TARGET_DIR)/hugo
+docker-rebuild: $(TARGET_DIR)/$(STATIC) $(TARGET_DIR)/webhooker $(TARGET_DIR)/hugo
 	docker build --no-cache -t sainaen/hugo-ci $(TARGET_DIR)
 
 docker-push: docker
