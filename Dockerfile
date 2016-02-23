@@ -11,4 +11,4 @@ VOLUME ["/sources", "/sites"]
 
 EXPOSE 8000
 
-CMD ["webhooker", "--port", "8000", "--config", "/etc/webhooker/config"]
+CMD ["webhooker", "--port", "8000", "--config", "/etc/hugo-ci/config"]
