@@ -1,6 +1,6 @@
 # versions are without 'v' because Hugo uses different format
 # in different places
-WEBHOOKER_VERSION = 0.3
+WEBHOOKER_VERSION = 0.3.1
 WEBHOOKER_URL = https://github.com/sainaen/webhooker/releases/download/v$(WEBHOOKER_VERSION)/webhooker-linux
 
 HUGO_VERSION = 0.15
