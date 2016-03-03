@@ -14,13 +14,18 @@ if [ ! -d "$SRC_DIR" ]; then
 		CLONE_URL=$CLONE_URL_HTTPS
 	fi
 
-	git clone "$CLONE_URL" "$SRC_DIR"
+	git clone --recursive "$CLONE_URL" "$SRC_DIR"
 fi
 
 cd $SRC_DIR
 git fetch
 echo "Checking out $COMMIT"
 git checkout --quiet $COMMIT
+
+if [ -r ".gitmodules" ]; then
+	git submodule sync --recursive
+	git submodule update --init --recursive
+fi
 
 echo "Building $SITE to $OUT_DIR"
 hugo -v -d "$OUT_DIR"

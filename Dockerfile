@@ -1,6 +1,6 @@
 FROM alpine:3.3
 
-RUN apk add --update git openssh-client && \
+RUN apk add --update git openssh-client perl && \
     rm -rf /var/cache/apk/* && \
     mkdir /sources && \
     mkdir /sites
